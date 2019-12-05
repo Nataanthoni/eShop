@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 
+const val SPLASH_TIME = 3000L // 3 seconds
+
 class SplashScreen : AppCompatActivity() {
 
-    private val splashTime = 3000L // 3 seconds
     private lateinit var myHandler: Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +18,7 @@ class SplashScreen : AppCompatActivity() {
         myHandler = Handler()
         myHandler.postDelayed({
             goToMainActivity()
-        }, splashTime)
+        }, SPLASH_TIME)
     }
 
     private fun goToMainActivity() {
