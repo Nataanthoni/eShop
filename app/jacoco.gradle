@@ -1,0 +1,47 @@
+apply plugin: 'jacoco'
+
+ext {
+    coverageSourceDirs = ['src/test/java']
+}
+
+jacoco {
+    toolVersion = "0.8.5"
+    reportsDir = file("$buildDir/reports")
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: "testDebugUnitTest") {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports for Debug build"
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def excludes = ['**/R.class',
+                    '**/R$*.class',
+                    '**/*$ViewBinder*.*',
+                    '**/*$InjectAdapter*.*',
+                    '**/*Injector*.*',
+                    '**/BuildConfig.*',
+                    '**/Manifest*.*',
+                    '**/*Test*.*',
+                    '**/*Activity*.*',
+                    '**/CiMattersApplication*.*',
+                    'android/**/*.*']
+
+    def debugTree = fileTree(
+            dir: "$buildDir/intermediates/javac/debug/compileDebugJavaWithJavac/classes/de/logerbyte/jacocotest",
+            excludes: excludes)
+    def kotlinDebugTree = fileTree(
+            dir: "$buildDir/tmp/kotlin-classes/debug",
+            excludes: excludes)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+    classDirectories.from = files([debugTree], [kotlinDebugTree])
+    sourceDirectories.from = files([mainSrc])
+    executionData.from = fileTree(dir: "$buildDir", includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/code-coverage/connected/*.ec" //Check this path or update to relevant path
+    ])
+}
