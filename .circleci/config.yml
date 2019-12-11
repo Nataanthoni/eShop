@@ -80,6 +80,7 @@ references:
       name: Decode Google Services key
       command: echo $GOOGLE_SERVICES_FILE | base64 -di > app/google-services.json
 
+
   # Google Cloud Service
 
   export_gcloud_key: &export_gcloud_key
@@ -203,11 +204,6 @@ jobs:
       - run:
           name: Run instrumented test on Firebase Test Lab
           command: gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/debug/app-debug.apk --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=sailfish,version=26,locale=en_US,orientation=portrait --environment-variables coverage=true,coverageFile=/sdcard/coverage.ec --directories-to-pull=/sdcard --results-bucket=gs://${GS_BUCKET} --timeout 20m
-#          command: >
-#            gcloud firebase test android run \
-#              --app app/build/outputs/apk/debug/app-debug.apk \
-#              --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk \
-#              --results-bucket cloud-test-${GOOGLE_PROJECT_ID}
       - run:
           name: Create directory to store test results
           command: mkdir firebase
@@ -250,6 +246,23 @@ jobs:
           path: app/build/reports/
           destination: /reports/
 
+  ## Deploy release APK to App Distribution
+
+  deploy:
+    <<: *android_config
+    steps:
+      - checkout
+      - *restore_cache
+      - run:
+          name: Download dependencies
+          command: ./gradlew androidDependencies
+      - *save_cache
+      - *export_gservices_key
+      - *decode_gservices_key
+      - run:
+          name: Distribute App with Firebase
+          command: ./gradlew -PciBuild=true :app:appDistributionUploadRelease --stacktrace
+
 workflows:
   version: 2
   workflow:
@@ -267,5 +280,15 @@ workflows:
             - build_debug
       - report_coverage:
           requires:
+            - test_unit
+            - test_instrumented
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build_release
+            - check_quality
             - test_unit
             - test_instrumented

@@ -8,6 +8,9 @@ apply from: 'jacoco.gradle'
 
 apply plugin: 'io.fabric'
 
+apply plugin: 'com.google.firebase.appdistribution'
+
+
 android {
     compileSdkVersion 29
     defaultConfig {
@@ -25,6 +28,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            firebaseAppDistribution {
+                releaseNotes="Notes\n"
+                groups="android-testers"
+            }
         }
     }
     testOptions {
@@ -38,6 +45,17 @@ android {
                 }
             }
         }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/INDEX.LIST'
     }
 }
 
@@ -59,6 +77,8 @@ dependencies {
     implementation('com.crashlytics.sdk.android:crashlytics:2.10.1') {
         transitive = true
     }
+
+    implementation 'com.google.cloud:google-cloud-storage:1.102.0'
 
     // AndroidX Test - JVM testing
     testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
