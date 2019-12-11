@@ -269,13 +269,3 @@ workflows:
           requires:
             - test_unit
             - test_instrumented
-      - deploy:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - build_release
-            - check_quality
-            - test_unit
-            - test_instrumented
