@@ -250,21 +250,6 @@ jobs:
           path: app/build/reports/
           destination: /reports/
 
-  ## Deploy release APK to Fabric Beta
-
-  deploy:
-    <<: *android_config
-    steps:
-      - checkout
-      - *attach_release_workspace
-      - *restore_cache
-      - run:
-          name: Download dependencies
-          command: ./gradlew androidDependencies
-      - run:
-          name: Deploy to Fabric Beta
-          command: ./gradlew -PciBuild=true :app:crashlyticsUploadDistributionRelease
-
 workflows:
   version: 2
   workflow:
