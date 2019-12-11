@@ -56,7 +56,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.2.1'
 
     // Add the Firebase Crashlytics dependency.
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    releaseImplementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 
     // AndroidX Test - JVM testing
     testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
