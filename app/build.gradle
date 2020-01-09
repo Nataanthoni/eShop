@@ -61,6 +61,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api "com.google.android.material:material:$materialVersion"
+    implementation "androidx.legacy:legacy-support-v4:$legacyVersion"
+    implementation "com.android.volley:volley:$volleyVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.core:core-ktx:$coreKtxVersion"
@@ -68,6 +73,8 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+
+    implementation "androidx.fragment:fragment-testing:$fragmentVersion"
 
     // (Recommended) Add the Google Analytics dependency.
     implementation "com.google.firebase:firebase-analytics:$firebaseAnalyticsVersion"
