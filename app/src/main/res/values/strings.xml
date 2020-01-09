@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">eShop</string>
+    <string name="eshop_logo_content_description">Eshop Logo</string>
+    <string name="es_hint_username">Username</string>
+    <string name="es_hint_password">Password</string>
+    <string name="es_button_next">Next</string>
+    <string name="es_button_cancel">Cancel</string>
+    <string name="es_error_password">Password must contain at least 8 characters.</string>
+
 </resources>
