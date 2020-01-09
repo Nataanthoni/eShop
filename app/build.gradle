@@ -10,6 +10,8 @@ apply plugin: 'io.fabric'
 
 apply plugin: 'com.google.firebase.appdistribution'
 
+apply from: rootProject.file('app/git-hooks/git-hooks.gradle')
+
 
 android {
     compileSdkVersion 29
