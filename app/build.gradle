@@ -59,6 +59,15 @@ android {
         exclude 'META-INF/ASL2.0'
         exclude 'META-INF/INDEX.LIST'
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -77,6 +86,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
 
     implementation "androidx.fragment:fragment-testing:$fragmentVersion"
+//    androidTestImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
 
     // (Recommended) Add the Google Analytics dependency.
     implementation "com.google.firebase:firebase-analytics:$firebaseAnalyticsVersion"
@@ -103,11 +113,14 @@ dependencies {
 
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
     implementation "androidx.test:core:$androidXTestCoreVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 
     // Dependencies for Android instrumented unit tests
     androidTestImplementation "junit:junit:$junitVersion"
     androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
     androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 
     androidTestImplementation "androidx.test:rules:$rulesVersion"
 
