@@ -16,4 +16,10 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
+    <style name="Widget.Eshop.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">?attr/colorAccent</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
 </resources>

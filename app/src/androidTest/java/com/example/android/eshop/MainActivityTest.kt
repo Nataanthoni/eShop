@@ -2,14 +2,19 @@ package com.example.android.eshop
 
 import android.content.Context
 import android.os.Bundle
+import android.os.SystemClock
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -31,8 +36,7 @@ import org.mockito.Mockito.verify
 class MainActivityTest {
 
     @get:Rule
-    var activityRule: ActivityTestRule<MainActivity>
-            = ActivityTestRule(MainActivity::class.java)
+    var activityRule: ActivityTestRule<MainActivity> = ActivityTestRule(MainActivity::class.java)
 
     @Before
     fun setUp() {
@@ -53,12 +57,11 @@ class MainActivityTest {
     }
 
     @Test
-    fun clickNextButton_navigateToProductGridFragment(){
+    fun clickNextButton_navigateToProductGridFragment() {
 
         onView(withId(R.id.username_edit_text)).perform(typeText("john"), closeSoftKeyboard())
 
         onView(withId(R.id.password_edit_text)).perform(typeText("johndoe123"), closeSoftKeyboard())
-
         // THEN  - Verify that we navigate to the add screen
         // -- TBD
     }

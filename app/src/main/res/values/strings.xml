@@ -7,4 +7,10 @@
     <string name="es_button_cancel">Cancel</string>
     <string name="es_error_password">Password must contain at least 8 characters.</string>
 
+    <string name="es_filter_title">Filter</string>
+    <string name="es_search_title">Search</string>
+
+    <string name="es_product_title">Title</string>
+    <string name="es_product_description">Secondary text</string>
+
 </resources>
