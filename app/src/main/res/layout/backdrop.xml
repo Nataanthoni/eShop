@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Eshop.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/es_featured_label" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Eshop.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/es_apartment_label" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Eshop.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/es_accessories_label" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Eshop.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/es_shoes_label" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Eshop.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/es_tops_label" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Eshop.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/es_bottoms_label" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Eshop.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/es_dresses_label" />
+
+    <View
+        android:layout_width="56dp"
+        android:layout_height="1dp"
+        android:layout_margin="16dp"
+        android:background="?android:attr/textColorPrimary" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Eshop.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/es_account_label" />
+
+</merge>

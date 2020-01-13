@@ -1,12 +1,15 @@
 package com.example.android.eshop
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +17,7 @@ import com.example.android.eshop.network.ProductEntry
 import com.example.android.eshop.product.ProductCardRecyclerViewAdapter
 import com.example.android.eshop.product.ProductGridItemDecoration
 import com.example.android.eshop.staggeredgridlayout.StaggeredProductCardRecyclerViewAdapter
+import com.example.android.eshop.util.NavigationIconClickListener
 import kotlinx.android.synthetic.main.product_grid_fragment.view.*
 
 const val DISPLAY_COLUMNS = 3
@@ -34,6 +38,17 @@ class ProductGridFragment : Fragment() {
         // Set up the tool bar
         if (activity is AppCompatActivity) {
             (activity as AppCompatActivity).setSupportActionBar(view.app_bar)
+        }
+        view.app_bar.setNavigationOnClickListener(NavigationIconClickListener(
+            activity!!,
+            view.product_grid,
+            AccelerateDecelerateInterpolator(),
+            ContextCompat.getDrawable(context!!, R.drawable.es_branded_menu), // Menu open icon
+            ContextCompat.getDrawable(context!!, R.drawable.es_close_menu))) // Menu close icon
+
+        // Set cut corner background for API 23+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            view.product_grid.background = context?.getDrawable(R.drawable.es_product_grid_background_shape)
         }
 
         // Set up the RecyclerView
