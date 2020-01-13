@@ -53,7 +53,7 @@ class MainActivityTest {
     fun splashScreen_loadsLoginFragment() {
 
         // When - App name exists
-        onView(withId(R.id.name_label)).check(matches(withText("ESHOP")))
+        onView(withId(R.id.name_label)).check(matches(withText("eShop")))
     }
 
     @Test

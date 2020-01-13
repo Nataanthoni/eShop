@@ -15,8 +15,6 @@ class ProductGridItemDecoration(
     override fun getItemOffsets(outRect: Rect, view: View,
                                 parent: RecyclerView, state: RecyclerView.State) {
         outRect.left = smallPadding
-        outRect.right = smallPadding
-        outRect.top = largePadding
-        outRect.bottom = largePadding
+        outRect.right = largePadding
     }
 }
