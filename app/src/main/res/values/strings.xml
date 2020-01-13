@@ -13,4 +13,15 @@
     <string name="es_product_title">Title</string>
     <string name="es_product_description">Secondary text</string>
 
+    <!-- Eshop backdrop menu labels -->
+    <string name="es_featured_label">Featured</string>
+    <string name="es_apartment_label">Apartment</string>
+    <string name="es_accessories_label">Accessories</string>
+    <string name="es_shoes_label">Shoes</string>
+    <string name="es_tops_label">Tops</string>
+    <string name="es_bottoms_label">Bottoms</string>
+    <string name="es_dresses_label">Dresses</string>
+    <string name="es_account_label">My Account</string>
+    <string name="es_logo_content_description">Shrine Logo</string>
+
 </resources>
