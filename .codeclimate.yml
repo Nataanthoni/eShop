@@ -1,0 +1,4 @@
+exclude_patterns:
+  - "**/R.java"
+  - "test/"
+  - "androidTest/"
