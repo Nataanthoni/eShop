@@ -24,6 +24,13 @@
         <item name="titleTextAppearance">@style/TextAppearance.Eshop.Toolbar</item>
     </style>
 
+    <style name="Widget.Eshop.Toolbar.Filter" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">?attr/colorAccent</item>
+        <item name="android:theme">@style/Theme.Eshop</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="titleTextAppearance">@style/TextAppearance.Eshop.Toolbar</item>
+    </style>
+
     <style name="TextAppearance.Eshop.Toolbar" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textSize">16sp</item>
     </style>
@@ -57,6 +64,51 @@
 
     <style name="Widget.Eshop.Backdrop" parent="">
         <item name="android:background">?attr/colorAccent</item>
+    </style>
+
+    <style name="Theme.Eshop.Filter">
+        <item name="android:textAppearance">@style/Widget.Eshop.TextView</item>
+    </style>
+
+    <style name="Widget.Eshop.SectionItem" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/es_standard_spacing</item>
+        <item name="android:paddingBottom">@dimen/es_standard_spacing</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="Widget.Eshop.SectionItem.Container">
+        <item name="android:layout_marginBottom">@dimen/es_small_spacing</item>
+        <item name="android:paddingLeft">@dimen/es_standard_spacing</item>
+        <item name="android:paddingRight">@dimen/es_standard_spacing</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Widget.Eshop.TextView" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/TextAppearance.Eshop.Filter</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="Widget.Eshop.TextView.SectionHeader">
+        <item name="android:textAppearance">@style/TextAppearance.Eshop.Filter.SubHead</item>
+    </style>
+
+    <style name="Widget.Eshop.TextView.SectionHeaderEnd">
+        <item name="android:layout_weight">0</item>
+        <item name="android:textSize">@dimen/shrine_section_header_text_size</item>
+    </style>
+
+    <style name="TextAppearance.Eshop.Filter" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Eshop.Filter.SubHead" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textSize">@dimen/shrine_section_header_text_size</item>
+        <item name="android:textColor">@color/textColorSecondary</item>
     </style>
 
 </resources>

@@ -1,20 +1,22 @@
 package com.example.android.eshop
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.eshop.network.ProductEntry
-import com.example.android.eshop.product.ProductCardRecyclerViewAdapter
 import com.example.android.eshop.product.ProductGridItemDecoration
 import com.example.android.eshop.staggeredgridlayout.StaggeredProductCardRecyclerViewAdapter
 import com.example.android.eshop.util.NavigationIconClickListener
@@ -73,5 +75,25 @@ class ProductGridFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
         super.onCreateOptionsMenu(menu, menuInflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return (when (item.itemId) {
+            R.id.search -> {
+                // open search
+                Toast.makeText(activity, "Search", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.filter -> {
+                // open search
+                Toast.makeText(activity, "Filter", Toast.LENGTH_SHORT).show()
+                activity?.let{
+                    val intent = Intent (it, FiltersActivity::class.java)
+                    it.startActivity(intent)
+                }
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        })
     }
 }
