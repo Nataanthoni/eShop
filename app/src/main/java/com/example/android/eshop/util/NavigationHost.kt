@@ -1,4 +1,4 @@
-package com.example.android.eshop
+package com.example.android.eshop.util
 
 import androidx.fragment.app.Fragment
 

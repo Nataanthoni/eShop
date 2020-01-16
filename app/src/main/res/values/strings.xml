@@ -24,4 +24,16 @@
     <string name="es_account_label">My Account</string>
     <string name="es_logo_content_description">Shrine Logo</string>
 
+    <!-- item categories available -->
+    <string name="es_filter_page_title">Filters</string>
+    <string name="es_price_range_section_title">Price Range</string>
+    <string name="es_price_range_max">$1000+</string>
+    <string name="es_international_shipping">International Shipping</string>
+    <string name="es_personalized_feeds">Personalized Feeds</string>
+    <string name="es_item_type_section_title">Item Type</string>
+    <string name="es_item_type_women">Women</string>
+    <string name="es_item_type_men">Men</string>
+    <string name="es_item_type_girls">Girls</string>
+    <string name="es_item_type_boys">Boys</string>
+
 </resources>

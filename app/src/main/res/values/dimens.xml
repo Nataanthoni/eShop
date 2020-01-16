@@ -17,4 +17,12 @@
     <dimen name="es_staggered_product_grid_card_width_landscape">188dp</dimen>
     <dimen name="es_staggered_product_grid_card_height_landscape">140dp</dimen>
 
+    <dimen name="es_standard_spacing">16dp</dimen>
+    <dimen name="es_small_spacing">8dp</dimen>
+    <dimen name="es_large_spacing">36dp</dimen>
+
+    <dimen name="shrine_section_elevation">4dp</dimen>
+    <dimen name="shrine_section_header_text_size">16sp</dimen>
+    <dimen name="shrine_seekbar_padding">12dp</dimen>
+
 </resources>
